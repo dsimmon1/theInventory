@@ -16,13 +16,10 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     date: {
-      type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-      len: [1],
-      notEmpty: true
-      }
+      type: DataTypes.DATE,
     }
+    //should I just make it autoincrement with the date that the person person submits
   });
   return History;
 };
