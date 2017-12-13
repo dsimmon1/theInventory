@@ -58,7 +58,8 @@ $(document).ready(function() {
 
 // This function constructs an orderHistory-item row
   function createNewRow(orderHistory) {
-    $(".order-container").append( "<li class='list-group-item order-item'>" + orderHistory.productID +" "+ orderHistory.quantityInput + " "+ orderHistory.month + " " + orderHistory.date + " " + orderHistory.year + "</li>")
+  $(".order-container").append( "<li class='list-group-item order-item'>" + orderHistory.productID +" "+ orderHistory.quantityInput + " "+ orderHistory.month + " " + orderHistory.date + " " + orderHistory.year + "</li>")
+
 
   }
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include header %>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="inventory-container">
+					<table class="table table-striped">
+						<tbody>
+							<tr id="form-row">
+								<form id="inventory-form">
+									<tr>
+										<td colspan="4">
+										Product Name:<input type="text" name="product_name" value="">
+										</td>
+										<td colspan="4">
+										Quantity:<input type="text" name="quantity" value="">
+										</td>
+										<td colspan="4">
+										Date:<input type="text" name="date" value="mm/dd/yy">
+										</td>
+									</tr>
+									<tr>
+										<td><button type="submit" class="btn btn-success">Receive Items</button>
+										</td>
+										<td><button type="submit" class="btn btn-success">Send Items</button>
+										</td>
+									</tr>
+								</form>
+							</tr>
+						</tbody>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!-- Custom Script -->
+		   <%- include footer %>
