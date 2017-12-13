@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "null",
+    "password": "",
     "database": "tropical_inventory",
     "host": "localhost",
     "dialect": "mysql"

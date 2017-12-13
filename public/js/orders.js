@@ -60,6 +60,8 @@ $(document).ready(function() {
   function createNewRow(orderHistory) {
   $(".order-container").append( "<li class='list-group-item order-item'>" + orderHistory.productID +" "+ orderHistory.quantityInput + " "+ orderHistory.month + " " + orderHistory.date + " " + orderHistory.year + "</li>")
 
+
   }
+
 
   });

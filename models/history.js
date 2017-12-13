@@ -2,6 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var History = sequelize.define("History", {
      id: {
       type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false,
       validate: {
         len: [1, 10]
