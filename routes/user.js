@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 const passport = require("../config/passport");
-const users_controller = require('../controllers/user_controller');
+const users_controller = require('../controller/user_controller');
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 router.get('/signup', users_controller.registrationPage);

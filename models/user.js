@@ -41,17 +41,18 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [500]
             }
-        }, 
+        }
+        }, {
 
         //PASSPORT
-        classMethods: {
-          associate: function(models) {
-            // associations can be defined here
-            User.hasMany(models.Trip, {
-                onDelete: "cascade"
-            });
-          }
-        },
+        // classMethods: {
+        //   associate: function(models) {
+        //     // associations can be defined here
+        //     User.hasMany(models.User, {
+        //         onDelete: "cascade"
+        //     });
+        //   }
+        // },
         instanceMethods: {
           validPassword: function(password) {
             return bcrypt.compareSync(password, this.password);
