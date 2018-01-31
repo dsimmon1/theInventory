@@ -57,16 +57,14 @@ $(document).ready(function() {
 
         searchedItem = searchedItem.replace(/\s+/g, "").toLowerCase();
 
-        $.get("/api/inventory-view-all" + searchedItem, function(data) {
-            // log the data to our console
+        $.get("/api/inventory-view-all/" + searchedItem, function(data) {
             console.log(data);
             $(".search-content").empty();
             if (!data) {
                 $(".search-content").append("<h2>Item not found.</h2>");
             }
-            // otherwise
+      
             else {
-
                 $(".search-content").append("<h3>Product Code:" + data.product_code + "</h3>");
                 $(".search-content").append("<h3>Description: " + data.description + "</h3>");
                 $(".search-content").append("<h3>SF Box: " + data.SF_Box + "</h3>");
