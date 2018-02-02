@@ -78,21 +78,21 @@ app.use(session({
 // development only
 
 app.get('/', routes.index); //call for main index page
-app.get('/signup', user_controller.signUp); //call for signup page
+app.get('/signup', user_controller.create); //call for signup page
 app.post('/signup', user_controller.signUp); //call for signup post 
 app.get('/login', routes.index); //call for login page
 app.post('/login', user_controller.loginUser); //call for login post
 app.get('/home/dashboard', user_controller.dashboard); //call for dashboard page after login
 app.get('/home/logout', user_controller.logOutUser); //call for logout
 // // app.get('/home/profile',user.profile);//to render users profile
-app.get('/home/stockcontrol', user_controller.stockcontrol);
+app.get('/home/stockcontrol', user_controller.stockControl);
 app.put('/api/stockcontrol', stockControl);
 // app.get('/home/inventory', user.inventory);
 // app.get('/home/orders', user.orders);
 // app.get('/home/api/inventory', api.api_inventory);
 
 //THIS NOW UPDATES THE COLUMN TOTAL when you click 
-app.put('/api/receiveorders', receiveOrders)
+app.put('/api/receiveorders', receiveOrders);
 
 
 function receiveOrders(res, req) {
@@ -131,9 +131,9 @@ function receiveOrders(res, req) {
                     console.log('error', err)
                 })
         })
-}
+};
 
-app.put('/api/sendorders', sendOrders)
+app.put('/api/sendorders', sendOrders);
 
 function sendOrders(res, req) {
 
@@ -170,7 +170,7 @@ function sendOrders(res, req) {
                     console.log('error', err)
                 })
         })
-}
+};
 
 
 app.post("/api/createUser", function(req, res) {
@@ -269,8 +269,8 @@ function stockControl(res, req) {
                 .catch(function(err) {
                     console.log('error', err)
                 })
-        })
-
+        });
+}
     // db.Inventory
     // .findOne({
     //     where: {
@@ -298,7 +298,7 @@ function stockControl(res, req) {
     //             console.log('error', err)
     //         })
     // })
-// }
+
 
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
