@@ -6,7 +6,7 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../views/index.ejs"));
     });
 
-    app.get("/dashboard/:id", function(req, res) {
+    app.get("/dashboard/:id?", function(req, res) {
         res.sendFile(path.join(__dirname, "../views/dashboard.ejs"));
     })
 

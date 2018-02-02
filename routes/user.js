@@ -7,7 +7,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 router.get('/signup', user_controller.signUp);
 
-router.get('/sign-out', user_controller.signOutUser);
+router.get('/sign-out', user_controller.logOutUser);
 
 exports.login = function(req, res) {
 	console.log("login");
@@ -79,19 +79,19 @@ module.exports = router;
 
 // exports.dashboard = function(req, res, next) {
 
-//     var user = req.session.user,
-//         userId = req.session.userId;
-//     console.log('ddd=' + userId);
-//     if (userId == null) {
-//         res.redirect("/login");
-//         return;
-//     }
+//     // var user = req.session.user,
+//     //     userId = req.session.userId;
+//     // console.log('ddd=' + userId);
+//     // if (userId == null) {
+//     //     res.redirect("/login");
+//     //     return;
+//     // }
 
-//     var sql = "SELECT * FROM `users` WHERE `id`='" + userId + "'";
+//     // var sql = "SELECT * FROM `users` WHERE `id`='" + userId + "'";
 
-//     db.query(sql, function(err, results) {
-//         res.render('dashboard.ejs', { user: user });
-//     });
+//     // db.query(sql, function(err, results) {
+//         res.render('dashboard.ejs');
+    // });
 // };
 
 // //-----------------------------------------------orders page functionality----------------------------------------------

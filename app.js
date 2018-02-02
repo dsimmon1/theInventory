@@ -82,8 +82,8 @@ app.get('/signup', user_controller.signUp); //call for signup page
 app.post('/signup', user_controller.signUp); //call for signup post 
 app.get('/login', routes.index); //call for login page
 app.post('/login', user_controller.loginUser); //call for login post
-// app.get('/home/dashboard', user.dashboard); //call for dashboard page after login
-// app.get('/home/logout', user.logout); //call for logout
+app.get('/home/dashboard', user_controller.dashboard); //call for dashboard page after login
+app.get('/home/logout', user_controller.logOutUser); //call for logout
 // // app.get('/home/profile',user.profile);//to render users profile
 // app.get('/home/stockcontrol', user.stockcontrol);
 // app.get('/home/inventory', user.inventory);
