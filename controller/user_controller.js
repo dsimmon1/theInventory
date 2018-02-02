@@ -62,3 +62,39 @@ exports.signUp = function(req,res) {
     }
   })
 };
+
+exports.stockControl = function(res, req) {
+    console.log('res SC', res.body)
+    const name = res.body.name
+    // const name2 = res.body.name2
+    const locationFrom = res.body.locationFrom
+    const locationTo = res.body.locationTo
+    const amount = parseInt(res.body.amount)
+    // const amount2 = parseInt(res.body.amount2)
+
+    db.Inventory
+        .findOne({
+            where: {
+                product_code: name
+            },
+        })
+        .then(function(data) {
+            // console.log(data)
+            const product = data.dataValues
+            console.log(typeof product[locationFrom], typeof product[locationTo], typeof amount)
+
+            db.Inventory
+                .update({
+                    [locationFrom]: product[locationFrom] - amount,
+                    [locationTo]: product[locationTo] + amount
+
+
+                }, { where: { product_code: name } })
+                .then(function(update) {
+                    console.log('update', update)
+                })
+                .catch(function(err) {
+                    console.log('error', err)
+                })
+        })
+      };

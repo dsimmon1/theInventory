@@ -85,7 +85,8 @@ app.post('/login', user_controller.loginUser); //call for login post
 app.get('/home/dashboard', user_controller.dashboard); //call for dashboard page after login
 app.get('/home/logout', user_controller.logOutUser); //call for logout
 // // app.get('/home/profile',user.profile);//to render users profile
-// app.get('/home/stockcontrol', user.stockcontrol);
+app.get('/home/stockcontrol', user_controller.stockcontrol);
+app.put('/api/stockcontrol', stockControl);
 // app.get('/home/inventory', user.inventory);
 // app.get('/home/orders', user.orders);
 // app.get('/home/api/inventory', api.api_inventory);
@@ -233,8 +234,7 @@ app.post("/api/createUser", function(req, res) {
 //     }
 
 
-//start of stock control 
-app.put('/api/stockcontrol', stockControl)
+
 
 function stockControl(res, req) {
     console.log('res SC', res.body)
@@ -298,7 +298,7 @@ function stockControl(res, req) {
     //             console.log('error', err)
     //         })
     // })
-}
+// }
 
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
