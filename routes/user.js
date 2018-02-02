@@ -2,19 +2,22 @@ const express = require('express');
 const router  = express.Router();
 
 const passport = require("../config/passport");
-const users_controller = require('../controller/user_controller');
+const user_controller = require('../controller/user_controller');
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-router.get('/signup', users_controller.registrationPage);
+router.get('/signup', user_controller.signUp);
 
-router.get('/sign-out', users_controller.signOutUser);
+router.get('/sign-out', user_controller.signOutUser);
 
-router.post('/login',
+exports.login = function(req, res) {
+	console.log("login");
+	router.post('/login',
     passport.authenticate("local"),
-    users_controller.loginUser
+    user_controller.loginUser
     );
+}
 
-router.post('/signup', users_controller.signUpUser);
+router.post('/signup', user_controller.signUp);
 
 module.exports = router;
 

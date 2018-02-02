@@ -14,14 +14,19 @@ const app = express();
 const db = require("./models");
 const Sequelize = require('sequelize');
 const mysql = require('mysql');
-var connection;
+let connection;
 const bodyParser = require("body-parser");
 
 //PASSPORT
 const passport = require("./config/passport");
 const isAuth = require("./config/middleware/isAuthenticated");
-const authCheck = require('./config/middleware/attachAuthenticationStatus');
+const authCheck = require("./config/middleware/attachAuthenticationStatus");
+const user_controller = require("./controller/user_controller");
+const isAuthenticated = require("./config/middleware/isAuthenticated");
+// require("./routes/user.js");
 app.use(passport.initialize());
+app.use(passport.session());
+app.use(authCheck);
 //PASSPORT
 
 if (process.env.JAWSDB_URL) {
@@ -73,16 +78,16 @@ app.use(session({
 // development only
 
 app.get('/', routes.index); //call for main index page
-app.get('/signup', user.signup); //call for signup page
-app.post('/signup', user.signup); //call for signup post 
+app.get('/signup', user_controller.signUp); //call for signup page
+app.post('/signup', user_controller.signUp); //call for signup post 
 app.get('/login', routes.index); //call for login page
-app.post('/login', user.login); //call for login post
-app.get('/home/dashboard', user.dashboard); //call for dashboard page after login
-app.get('/home/logout', user.logout); //call for logout
-// app.get('/home/profile',user.profile);//to render users profile
-app.get('/home/stockcontrol', user.stockcontrol);
-app.get('/home/inventory', user.inventory);
-app.get('/home/orders', user.orders);
+app.post('/login', user_controller.loginUser); //call for login post
+// app.get('/home/dashboard', user.dashboard); //call for dashboard page after login
+// app.get('/home/logout', user.logout); //call for logout
+// // app.get('/home/profile',user.profile);//to render users profile
+// app.get('/home/stockcontrol', user.stockcontrol);
+// app.get('/home/inventory', user.inventory);
+// app.get('/home/orders', user.orders);
 // app.get('/home/api/inventory', api.api_inventory);
 
 //THIS NOW UPDATES THE COLUMN TOTAL when you click 
